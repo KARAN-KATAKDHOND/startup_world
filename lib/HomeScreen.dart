@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
-
+import 'package:startup_world/MissionStatement.dart';
+import 'package:startup_world/FeatureBar.dart';
+import 'package:startup_world/HeroSection.dart';
+import 'package:startup_world/AppFooter.dart';
+import 'package:startup_world/MainContent.dart';
+import 'package:startup_world/ShowcaseSection.dart';
+import 'package:startup_world/drawer.dart';
 class homeScreen extends StatelessWidget {
   const homeScreen({super.key});
 
@@ -33,88 +39,29 @@ class homeScreen extends StatelessWidget {
             ),
           ),
         ),
-        drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              DrawerHeader(
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 2, 1, 64),
-                ),
-                child: Row(children: [
-                  
-          ],),
-              ),
-              ListTile(
-                leading: Icon(Icons.home_filled),
-                title: Text('Home'),
-                onTap: () {},
-              ),
-              ListTile(
-                leading: Icon(Icons.get_app_rounded), //to change later on
-                title: Text('Technologies'),
-                onTap: () {},
-              ),
-
-              ListTile(
-                leading: Icon(Icons.label),
-                title: Text('Our Domains'),
-                onTap: () {},
-              ),
-              ListTile(
-                leading: Icon(Icons.cast_for_education),
-                title: Text('Training'),
-                onTap: () {},
-              ),
-              ListTile(
-                leading: Icon(Icons.work),
-                title: Text('Internship'),
-                onTap: () {},
-              ),
-              ListTile(
-                leading: Icon(Icons.call),
-                title: Text('Contact Us'),
-                onTap: () {},
-              ),
-              SizedBox(height: 30),
-              ElevatedButton(
-                onPressed: () {},
-                child: Text('Register'),
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 10,
-                    horizontal: 40,
-                  ),
-                  foregroundColor: Colors.white,
-                  backgroundColor: Colors.lightBlue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(40),
-                  ),
-                ),
-              ),
-            //trial code
-            /*Spacer(),
-            Divider(),
-            ListTile(
-              leading: Icon(Icons.close),
-              onTap: (){},
-              title: Text('close'),
-            )
-*/
-            ],
-          ),
-        ),
-
-        body: Container(
+        drawer: drawer(),
+        /*body: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [const Color.fromARGB(255, 2, 47, 84)],
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
             ),
+          ),*/
+          body: const SingleChildScrollView(
+            child: Column(
+              children: [
+                HeroSection(),
+                FeatureBar(),
+                ShowcaseSection(),
+                MissionStatement(),
+                MainContent(),
+                AppFooter(),
+              ],
+            ),
           ),
-        ),
-      ),
-    );
+          ),
+      );
+    
   }
 }
